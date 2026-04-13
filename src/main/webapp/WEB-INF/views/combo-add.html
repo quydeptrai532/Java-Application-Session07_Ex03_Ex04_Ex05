@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Tạo Siêu Combo</title>
+</head>
+<body>
+<h2>Tạo Siêu Combo Mới</h2>
+<p style="color: red; font-weight: bold;" th:if="${error}" th:text="${error}"></p>
+
+<form th:action="@{/combo/add}" method="POST" enctype="multipart/form-data">
+    <label>Tên Combo:</label>
+    <input type="text" name="name" required /><br/><br/>
+
+    <label>Chọn các món ăn trong Combo (Ít nhất 2 món):</label><br/>
+    <input type="checkbox" name="itemList" value="Gà rán" /> Gà rán <br/>
+    <input type="checkbox" name="itemList" value="Khoai tây chiên" /> Khoai tây chiên <br/>
+    <input type="checkbox" name="itemList" value="Burger bò" /> Burger bò <br/>
+    <input type="checkbox" name="itemList" value="Pepsi cỡ lớn" /> Pepsi cỡ lớn <br/><br/>
+
+    <label>Banner quảng cáo (Cho phép tối đa 10MB):</label>
+    <input type="file" name="banner" accept="image/*" /><br/><br/>
+
+    <button type="submit">Tạo Combo</button>
+</form>
+</body>
+</html>
